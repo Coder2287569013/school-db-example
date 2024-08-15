@@ -8,12 +8,14 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
+
 class Teacher(models.Model):
     name = models.CharField(max_length=255)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.name}"
+
 
 class Grade(models.Model):
     name = models.CharField(max_length=5)
@@ -23,7 +25,9 @@ class Grade(models.Model):
     def __str__(self):
         return f'''Name: {self.name},
         Head Teacher: {self.head_teacher}, 
-        Subjects: {self.subjects.all().values_list()}'''
+        Subjects: {self.subjects.all()}'''
+    
+
 class Student(models.Model):
     name = models.CharField(max_length=255)
     grade = models.ForeignKey(Grade, on_delete=models.DO_NOTHING)
