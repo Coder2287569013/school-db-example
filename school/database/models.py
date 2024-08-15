@@ -19,12 +19,12 @@ class Teacher(models.Model):
 
 class Grade(models.Model):
     name = models.CharField(max_length=5)
-    head_teacher = models.ForeignKey(Teacher, on_delete=models.DO_NOTHING)
+    class_teacher = models.ForeignKey(Teacher, on_delete=models.DO_NOTHING)
     subjects = SortedManyToManyField("Subject", related_name="subjects")
 
     def __str__(self):
         return f'''Name: {self.name},
-        Head Teacher: {self.head_teacher}, 
+        Class Teacher: {self.class_teacher}, 
         Subjects: {self.subjects.all()}'''
     
 
