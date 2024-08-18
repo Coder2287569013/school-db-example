@@ -25,7 +25,7 @@ class Grade(models.Model):
     class_teacher = models.ForeignKey(Teacher, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return f'''Name: {self.name},
+        return f'''{self.name},
         Class Teacher: {self.class_teacher}'''
     
 
